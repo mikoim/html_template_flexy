@@ -642,7 +642,7 @@ class HTML_Template_Flexy
          
         // no original - return new
         if (!$original) {
-            return clone($new); 
+            return clone $new;
         }
         return $original->merge($new);
         

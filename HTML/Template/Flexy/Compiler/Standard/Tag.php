@@ -17,10 +17,6 @@
 // +----------------------------------------------------------------------+
 //
 // $Id$
-/* FC/BC compatibility with php5 */
-if ( (substr(phpversion(),0,1) < 5) && !function_exists('clone')) {
-    eval('function clone($t) { return $t; }');
-}
 
 /**
 * Compiler That deals with standard HTML Tag output.
@@ -738,7 +734,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
     function parseTagForm() 
     {
         global $_HTML_TEMPLATE_FLEXY;
-        $copy = clone($this->element);
+        $copy = clone $this->element;
         $copy->children = array();
         $id = $this->element->getAttribute('NAME');
         if (!$id) {
@@ -746,7 +742,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
         }
         
         // this adds the element to the elements array.
-        $old = clone($this->element);
+        $old = clone $this->element;
         $this->element = $copy;
         $this->getElementPhp($id);
         $this->element= $old;

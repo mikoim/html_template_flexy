@@ -30,7 +30,7 @@ compilefile('include.html',
             <?php 
 $x = new HTML_Template_Flexy($this->options);
 $x->compile('include_block.html');
-$_t = function_exists('clone') ? clone($t) : $t;
+$_t = clone $t;
 foreach(array('key','value')  as $k) {
     if ($k != 't') { $_t->$k = $$k; }
 }

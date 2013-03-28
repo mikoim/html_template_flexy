@@ -705,13 +705,13 @@ class HTML_Template_Flexy_Element {
     function merge($new)
     {
         // Clone objects is possible to avoid creating references between elements
-        $original = clone($this);
+        $original = clone $this;
         // no new - return original
         if (!$new) {
             return $original;
         }
 
-        $new = clone($new); 
+        $new = clone $new;
         
         // If the properties of $original differ from those of $new and 
         // they are set on $new, set them to $new's. Otherwise leave them 

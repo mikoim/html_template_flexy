@@ -233,7 +233,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Flexy  {
         return $this->compiler->appendPHP( "\n".
                 "\$x = new HTML_Template_Flexy(\$this->options);\n".
                 "\$x->compile({$arg});\n".
-                "\$_t = function_exists('clone') ? clone(\$t) : \$t;\n".
+                "\$_t = clone \$t;\n".
                 "foreach(".$element->scopeVarsToArrayString(). "  as \$k) {\n" .
                 "    if (\$k != 't') { \$_t->\$k = \$\$k; }\n" .
                 "}\n" .
