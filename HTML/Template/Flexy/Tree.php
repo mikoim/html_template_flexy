@@ -94,7 +94,7 @@ class HTML_Template_Flexy_Tree {
     * @static
     */
   
-    function construct($data,$options=array()) 
+    static public function construct($data, array $options = array()) 
     {
     
         // local caching!
@@ -138,7 +138,7 @@ class HTML_Template_Flexy_Tree {
     
     function tokenize($data) {
         require_once 'HTML/Template/Flexy/Tokenizer.php';
-        $tokenizer =  &HTML_Template_Flexy_Tokenizer::construct($data,$this->options);
+        $tokenizer = HTML_Template_Flexy_Tokenizer::construct($data,$this->options);
         
         // initialize state - this trys to make sure that
         // you dont do to many elses etc.

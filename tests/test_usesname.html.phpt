@@ -6,14 +6,14 @@ require_once 'testsuite.php';
 require_once 'HTML/Template/Flexy/Element.php';
 
 $elem = array();
-$elem['formtest'] = &new HTML_Template_Flexy_Element(); 
+$elem['formtest'] = new HTML_Template_Flexy_Element(); 
 $elem['formtest']->attributes['method'] = 'post'; 
 $elem['formtest']->attributes['action'] = 'test'; //$_SERVER['PHP_SELF']; 
 
 for($i = 0; $i < 10; $i++) { 
         $obj->data[$i] = $i; 
         // & might cause problems!!!??
-        $elem["data$i"] = &new HTML_Template_Flexy_Element(); 
+        $elem["data$i"] = new HTML_Template_Flexy_Element(); 
         $elem["data$i"]->attributes['type'] = 'text'; 
         $elem["data$i"]->attributes['size'] = $i; 
 

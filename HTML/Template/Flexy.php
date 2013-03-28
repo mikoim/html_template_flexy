@@ -768,7 +768,7 @@ class HTML_Template_Flexy
         // load pluginManager.
         if (!isset($this->plugin)) {
             $this->plugin = new HTML_Template_Flexy_Plugin;
-            $this->plugin->flexy = &$this;
+            $this->plugin->flexy = $this;
         }
         return $this->plugin->call(func_get_args());
     } 
