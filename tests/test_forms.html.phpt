@@ -152,11 +152,11 @@ compilefile('forms.html',
 <?php echo $this->elements['_submit[2]']->toHtml();?>
 </form>
 
-<form action="<?php echo htmlspecialchars($t->someurl);?>">
+<form action="<?php echo htmlspecialchars($t->someurl,ENT_COMPAT,'UTF-8');?>">
 <?php 
 if (!isset($this->elements['testing2']->attributes['value'])) {
     $this->elements['testing2']->attributes['value'] = '';
-    $this->elements['testing2']->attributes['value'] .=  htmlspecialchars($t->somevalue);
+    $this->elements['testing2']->attributes['value'] .=  htmlspecialchars($t->somevalue,ENT_COMPAT,'UTF-8');
 }
 $_attributes_used = array('value');
 echo $this->elements['testing2']->toHtml();
@@ -184,7 +184,7 @@ if (isset($_attributes_used)) {  foreach($_attributes_used as $_a) {
 <?php 
 if (!isset($this->elements['test_mix']->attributes['action'])) {
     $this->elements['test_mix']->attributes['action'] = '';
-    $this->elements['test_mix']->attributes['action'] .=  htmlspecialchars($t->someurl);
+    $this->elements['test_mix']->attributes['action'] .=  htmlspecialchars($t->someurl,ENT_COMPAT,'UTF-8');
 }
 $_attributes_used = array('action');
 echo $this->elements['test_mix']->toHtmlnoClose();
@@ -195,7 +195,7 @@ if (isset($_attributes_used)) {  foreach($_attributes_used as $_a) {
 <?php 
 if (!isset($this->elements['testing5']->attributes['value'])) {
     $this->elements['testing5']->attributes['value'] = '';
-    $this->elements['testing5']->attributes['value'] .=  htmlspecialchars($t->somevalue);
+    $this->elements['testing5']->attributes['value'] .=  htmlspecialchars($t->somevalue,ENT_COMPAT,'UTF-8');
 }
 $_attributes_used = array('value');
 echo $this->elements['testing5']->toHtml();

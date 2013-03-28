@@ -17,8 +17,8 @@ compilefile('image_view.html');
 
   <tbody>
     <?php if ($this->options['strict'] || (is_array($t->images)  || is_object($t->images))) foreach($t->images as $row) {?><tr>
-      <?php if ($this->options['strict'] || (is_array($row)  || is_object($row))) foreach($row as $col) {?><td align="center" valign="middle" background="<?php echo htmlspecialchars($t->rootURL);?>/FlexyWiki/templates/negative.jpg"><a href="<?php echo htmlspecialchars($col->link);?>"><img border="0" height="<?php echo htmlspecialchars($col->info[1]);?>" width="<?php echo htmlspecialchars($col->info[0]);?>" src="<?php echo htmlspecialchars($col->url);?>"></a><br>
-            <font color="white">[<?php echo htmlspecialchars($col->name);?>] <?php echo htmlspecialchars($col->size);?>Mb</font>
+      <?php if ($this->options['strict'] || (is_array($row)  || is_object($row))) foreach($row as $col) {?><td align="center" valign="middle" background="<?php echo htmlspecialchars($t->rootURL,ENT_COMPAT,'UTF-8');?>/FlexyWiki/templates/negative.jpg"><a href="<?php echo htmlspecialchars($col->link,ENT_COMPAT,'UTF-8');?>"><img border="0" height="<?php echo htmlspecialchars($col->info[1],ENT_COMPAT,'UTF-8');?>" width="<?php echo htmlspecialchars($col->info[0],ENT_COMPAT,'UTF-8');?>" src="<?php echo htmlspecialchars($col->url,ENT_COMPAT,'UTF-8');?>"></a><br>
+            <font color="white">[<?php echo htmlspecialchars($col->name,ENT_COMPAT,'UTF-8');?>] <?php echo htmlspecialchars($col->size,ENT_COMPAT,'UTF-8');?>Mb</font>
       </td><?php }?>
     </tr><?php }?>
   </tbody>

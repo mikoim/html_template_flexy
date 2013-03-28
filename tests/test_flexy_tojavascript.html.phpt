@@ -23,15 +23,15 @@ compilefile('flexy_tojavascript.html');
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
  
  
 <?php require_once 'HTML/Javascript/Convert.php';?>
 <script type='text/javascript'>
-<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_abcg',true);echo (is_a($__tmp,"PEAR_Error")) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
-<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_abcd',true);echo (is_a($__tmp,"PEAR_Error")) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
-<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_srcXxx',true);echo (is_a($__tmp,"PEAR_Error")) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
+<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_abcg',true);echo ($__tmp instanceof PEAR_Error) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
+<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_abcd',true);echo ($__tmp instanceof PEAR_Error) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
+<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'test_abc_srcXxx',true);echo ($__tmp instanceof PEAR_Error) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
 </script>
 
 
@@ -39,7 +39,7 @@ compilefile('flexy_tojavascript.html');
 
 <?php require_once 'HTML/Javascript/Convert.php';?>
 <script type='text/javascript'>
-<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'abcg',true);echo (is_a($__tmp,"PEAR_Error")) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
+<?php $__tmp = HTML_Javascript_Convert::convertVar($t->xyz,'abcg',true);echo ($__tmp instanceof PEAR_Error) ? ("<pre>".print_r($__tmp,true)."</pre>") : $__tmp;?>
 </script>
 
 
@@ -55,7 +55,7 @@ compilefile('flexy_tojavascript.html');
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
  
  

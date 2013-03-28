@@ -22,31 +22,31 @@ compilefile('variables.html');
 <h2>Variables</H2>
 
 <p>Standard variables 
-<?php echo htmlspecialchars($t->hello);?> 
+<?php echo htmlspecialchars($t->hello,ENT_COMPAT,'UTF-8');?> 
 <?php echo $t->world;?>
 <?php echo urlencode($t->test);?>
-<?php echo htmlspecialchars($t->object->var);?>
-<?php echo htmlspecialchars($t->array[0]);?>
-<?php echo htmlspecialchars($t->array['entry']);?>
-<?php echo htmlspecialchars($t->multi['array'][0]);?>
-<?php echo htmlspecialchars($t->object->var['array'][1]);?>
-<?php echo '<pre>'; echo htmlspecialchars(print_r($t->object->var['array'][1],true)); echo '</pre>';;?>
+<?php echo htmlspecialchars($t->object->var,ENT_COMPAT,'UTF-8');?>
+<?php echo htmlspecialchars($t->array[0],ENT_COMPAT,'UTF-8');?>
+<?php echo htmlspecialchars($t->array['entry'],ENT_COMPAT,'UTF-8');?>
+<?php echo htmlspecialchars($t->multi['array'][0],ENT_COMPAT,'UTF-8');?>
+<?php echo htmlspecialchars($t->object->var['array'][1],ENT_COMPAT,'UTF-8');?>
+<?php echo '<pre>'; echo htmlspecialchars(print_r($t->object->var['array'][1],true),ENT_COMPAT,'UTF-8'); echo '</pre>';;?>
 <?php echo $t->object->var['array'][1];?>
 <?php echo $t->object->var['array'][-1];?>
-<?php echo htmlspecialchars($t->object['array']->with['objects']);?>
+<?php echo htmlspecialchars($t->object['array']->with['objects'],ENT_COMPAT,'UTF-8');?>
 Long string with NL2BR + HTMLSPECIALCHARS
-<?php echo nl2br(htmlspecialchars($t->longstring));?>
+<?php echo nl2br(htmlspecialchars($t->longstring,ENT_COMPAT,'UTF-8'));?>
 
-Everything: <?php echo '<pre>'; echo htmlspecialchars(print_r($t,true)); echo '</pre>';;?>
-an Object: <?php echo '<pre>'; echo htmlspecialchars(print_r($t->object,true)); echo '</pre>';;?>
+Everything: <?php echo '<pre>'; echo htmlspecialchars(print_r($t,true),ENT_COMPAT,'UTF-8'); echo '</pre>';;?>
+an Object: <?php echo '<pre>'; echo htmlspecialchars(print_r($t->object,true),ENT_COMPAT,'UTF-8'); echo '</pre>';;?>
 
 
-<img src="<?php echo htmlspecialchars($t->getImageDir);?>/someimage.jpg">
+<img src="<?php echo htmlspecialchars($t->getImageDir,ENT_COMPAT,'UTF-8');?>/someimage.jpg">
 <img src="<?php echo $t->getImageDir;?>/someimage.jpg">
 <img src="<?php echo urlencode($t->getImageDir);?>/someimage.jpg">
 
-<img src="<?php echo htmlspecialchars($t->getImageDir);?>/someimage.jpg">
-<img src="<?php echo htmlspecialchars($t->getImageDir);?>/someimage.jpg">
+<img src="<?php echo htmlspecialchars($t->getImageDir,ENT_COMPAT,'UTF-8');?>/someimage.jpg">
+<img src="<?php echo htmlspecialchars($t->getImageDir,ENT_COMPAT,'UTF-8');?>/someimage.jpg">
 </p>
 </body>
 </html>

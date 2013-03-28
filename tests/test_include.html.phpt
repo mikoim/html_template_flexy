@@ -23,7 +23,7 @@ compilefile('include.html',
 <html>
 	<body>
 
-    the variable is <?php echo htmlspecialchars($t->foo);?>
+    the variable is <?php echo htmlspecialchars($t->foo,ENT_COMPAT,'UTF-8');?>
 
     <table>
         <?php if ($this->options['strict'] || (is_array($t->range)  || is_object($t->range))) foreach($t->range as $key => $value) {?><tr>

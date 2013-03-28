@@ -25,9 +25,9 @@ _________________________________________________________________
 
 ORDER:
 
-ID:       <?php echo htmlspecialchars($t->order->h);?>
+ID:       <?php echo htmlspecialchars($t->order->h,ENT_COMPAT,'UTF-8');?>
 
-*Edit*:   http://<?php echo htmlspecialchars($t->host);?>/admin/sales/orders/edit?id=<?php echo htmlspecialchars($t->order);?>
+*Edit*:   http://<?php echo htmlspecialchars($t->host,ENT_COMPAT,'UTF-8');?>/admin/sales/orders/edit?id=<?php echo htmlspecialchars($t->order,ENT_COMPAT,'UTF-8');?>
 
 _________________________________________________________________
 
@@ -37,7 +37,7 @@ Name:     <?php echo $t->customer->firstname;?> <?php echo $t->customer->lastnam
 
 Email:    mailto:<?php echo $t->customer->email;?>
 
-*Edit*:   http://<?php echo htmlspecialchars($t->host);?>/admin/sales/customers/edit?id=<?php echo htmlspecialchars($t->customer->id);?>
+*Edit*:   http://<?php echo htmlspecialchars($t->host,ENT_COMPAT,'UTF-8');?>/admin/sales/customers/edit?id=<?php echo htmlspecialchars($t->customer->id,ENT_COMPAT,'UTF-8');?>
 
 _________________________________________________________________
 
@@ -85,7 +85,7 @@ _________________________________________________________________
 
           (<?php echo $o->producttypename;?>)
 
-*Edit*:   http://<?php echo htmlspecialchars($t->host);?>/admin/catalog/products/edit?id=<?php echo urlencode($o->product);?>
+*Edit*:   http://<?php echo htmlspecialchars($t->host,ENT_COMPAT,'UTF-8');?>/admin/catalog/products/edit?id=<?php echo urlencode($o->product);?>
 
 FABRIC:   <?php echo $o->fabricname;?>
 
@@ -103,7 +103,7 @@ Sub-total:                                       <?php echo $o->totalinctax;?>
 <?php if ($o->isgift)  {?>
 
 *GIFT MESSAGE* FOR THIS ITEM:
-<?php echo htmlspecialchars($o->giftmessage);?><?php }?><?php }?>
+<?php echo htmlspecialchars($o->giftmessage,ENT_COMPAT,'UTF-8');?><?php }?><?php }?>
 
 _________________________________________________________________
 

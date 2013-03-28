@@ -16,15 +16,15 @@ compilefile('style.html');
 
 
 
-<link rel="stylesheet" type="text/css" media="print" href="<?php echo htmlspecialchars($t->ROOT_CSS);?>/print.css">
+<link rel="stylesheet" type="text/css" media="print" href="<?php echo htmlspecialchars($t->ROOT_CSS,ENT_COMPAT,'UTF-8');?>/print.css">
 
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo htmlspecialchars($t->ROOT_CSS);?>/compatible.css">
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo htmlspecialchars($t->ROOT_CSS,ENT_COMPAT,'UTF-8');?>/compatible.css">
 
 <style type="text/css" media="screen">
 
 	<!--
 
-		@import url(<?php echo htmlspecialchars($t->ROOT_CSS);?>/main.css);
+		@import url(<?php echo htmlspecialchars($t->ROOT_CSS,ENT_COMPAT,'UTF-8');?>/main.css);
 
 .tdbodywarningCopy {
 	background-color: #eecccc;

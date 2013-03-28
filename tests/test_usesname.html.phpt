@@ -35,7 +35,7 @@ compilefile('usesname.html', array('data'=>$obj->data),array(), $elem);
   <body>
     <?php echo $this->elements['formtest']->toHtmlnoClose();?>
 <?php if ($this->options['strict'] || (is_array($t->data)  || is_object($t->data))) foreach($t->data as $key => $row) {?>
-      <?php echo htmlspecialchars($key);?>: <?php 
+      <?php echo htmlspecialchars($key,ENT_COMPAT,'UTF-8');?>: <?php 
                 $_element = $this->mergeElement(
                     $this->elements['data%s'],
                     isset($key) && isset($this->elements[sprintf('data%s',$key)]) ? $this->elements[sprintf('data%s',$key)] : false

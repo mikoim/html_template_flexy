@@ -26,9 +26,9 @@ compilefile('namespaces.html');
                 <treechildren>
                         <?php if ($this->options['strict'] || (is_array($t->sresult)  || is_object($t->sresult))) foreach($t->sresult as $id => $data) {?><treeitem>
                                 <treerow>
-                                        <treecell label="<?php echo htmlspecialchars($data->name);?>" />
-                                        <treecell label="<?php echo htmlspecialchars($data->group_name);?>" />
-                                        <treecell label="<?php echo htmlspecialchars($data->user_id);?>" />
+                                        <treecell label="<?php echo htmlspecialchars($data->name,ENT_COMPAT,'UTF-8');?>" />
+                                        <treecell label="<?php echo htmlspecialchars($data->group_name,ENT_COMPAT,'UTF-8');?>" />
+                                        <treecell label="<?php echo htmlspecialchars($data->user_id,ENT_COMPAT,'UTF-8');?>" />
                                 </treerow>
                         </treeitem><?php }?>
                 </treechildren>
@@ -51,7 +51,7 @@ if (isset($_attributes_used)) {  foreach($_attributes_used as $_a) {
 ?>
         <!-- example of how to make the above work correctly.. -->
         <html:select name="atest">
-            <?php if ($this->options['strict'] || (is_array($t->categories)  || is_object($t->categories))) foreach($t->categories as $data) {?><html:option value="<?php echo htmlspecialchars($data->value);?>" onselect="parent.onSelect_ProdCat();"><?php echo htmlspecialchars($data->name);?></html:option><?php }?>
+            <?php if ($this->options['strict'] || (is_array($t->categories)  || is_object($t->categories))) foreach($t->categories as $data) {?><html:option value="<?php echo htmlspecialchars($data->value,ENT_COMPAT,'UTF-8');?>" onselect="parent.onSelect_ProdCat();"><?php echo htmlspecialchars($data->name,ENT_COMPAT,'UTF-8');?></html:option><?php }?>
         </html:select>
         
         <!-- test toElement  -->
@@ -60,7 +60,7 @@ if (isset($_attributes_used)) {  foreach($_attributes_used as $_a) {
         <!-- test using flexy stuff -->
         <menulist id="supplier_id2">
             <menupopup>
-                    <?php if ($this->options['strict'] || (is_array($t->x)  || is_object($t->x))) foreach($t->x as $y) {?><menuitem id="itemSubCatAll" label="<?php echo htmlspecialchars($y->name);?>" value="<?php echo htmlspecialchars($y->value);?>" /><?php }?>
+                    <?php if ($this->options['strict'] || (is_array($t->x)  || is_object($t->x))) foreach($t->x as $y) {?><menuitem id="itemSubCatAll" label="<?php echo htmlspecialchars($y->name,ENT_COMPAT,'UTF-8');?>" value="<?php echo htmlspecialchars($y->value,ENT_COMPAT,'UTF-8');?>" /><?php }?>
             </menupopup>
         </menulist>
         

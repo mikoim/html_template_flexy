@@ -21,8 +21,8 @@ compilefile('raw_php.html',array(), array('allowPHP'=>'delete'));
 
 ===Compiled file: raw_php.html===
 
-<? for($i=0;$i<10;$i++) { ?>
-number: <?=$i?>
+<?php for($i=0;$i<10;$i++) { ?>
+number: <?php echo $i;?>
 <?php } ?>
 
 <script language="php">

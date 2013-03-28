@@ -15,8 +15,8 @@ compilefile('javascript.html');
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<script src='somefile/<?php echo htmlspecialchars($t->js_file);?>'></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src='somefile/<?php echo htmlspecialchars($t->js_file,ENT_COMPAT,'UTF-8');?>'></script>
 
 
 
@@ -95,7 +95,7 @@ function CheckDuplicates (AddListContainer, RemoveListContainer) {
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src='somefile/'></script>
 
 
