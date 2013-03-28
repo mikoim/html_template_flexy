@@ -127,7 +127,7 @@ class HTML_Template_Flexy_Element {
      *                                   or HTML attributes name="value" pairs
      * @access   public
      */
-    function HTML_Template_Flexy_Element($tag='', $attributes=null)
+    public function __construct($tag = '', $attributes = null)
     {
         
         $this->tag = strtolower($tag);

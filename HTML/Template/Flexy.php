@@ -212,7 +212,7 @@ class HTML_Template_Flexy
     *   @param    array    $options (Optional)
     */
       
-    function HTML_Template_Flexy( $options=array() )
+    public function __construct(array $options = array())
     {
         
         $baseoptions = array();
