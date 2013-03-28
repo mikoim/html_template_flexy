@@ -318,7 +318,7 @@ class HTML_Template_Flexy
         if (preg_match('/(.*)(\.[a-z]+)$/i',$file,$parts)) {
             $newfile = $parts[1].'.'.$this->options['locale'] .$parts[2];
             $match = $this->resolvePath($newfile);
-            if (is_a($match, 'PEAR_Error')) {
+            if ($match instanceof PEAR_Error) {
                 return $match;
             }
             if (false !== $match ) {
@@ -335,7 +335,7 @@ class HTML_Template_Flexy
             
             $match = $this->resolvePath($file);
             
-             if (is_a($match, 'PEAR_Error')) {
+             if ($match instanceof PEAR_Error) {
                 return $match;
             }
             if (false !== $match ) {
@@ -444,7 +444,7 @@ class HTML_Template_Flexy
         require_once 'HTML/Template/Flexy/Compiler.php';
         $compiler = HTML_Template_Flexy_Compiler::factory($this->options);
         $ret = $compiler->compile($this);
-        if (is_a($ret,'PEAR_Error')) {
+        if ($ret instanceof PEAR_Error) {
             return $this->raiseError('HTML_Template_Flexy fatal error:' .$ret->message,
                 $ret->code,  HTML_TEMPLATE_FLEXY_ERROR_DIE);
         }
@@ -614,7 +614,7 @@ class HTML_Template_Flexy
     {  
         
         
-        if (is_a($this,'HTML_Template_Flexy')) {
+        if ($this instanceof HTML_Template_Flexy) {
             if (!$this->options['debug']) {
                 return;
             }
@@ -692,7 +692,7 @@ class HTML_Template_Flexy
     {
         HTML_Template_Flexy::debug("<B>HTML_Template_Flexy::raiseError</B>$message");
         require_once 'PEAR.php';
-        if (is_a($this,'HTML_Template_Flexy') &&  ($fatal == HTML_TEMPLATE_FLEXY_ERROR_DIE)) {
+        if ($this instanceof HTML_Template_Flexy &&  ($fatal == HTML_TEMPLATE_FLEXY_ERROR_DIE)) {
             // rewrite DIE!
             return PEAR::raiseError($message, $type, $this->options['fatalError']);
         }

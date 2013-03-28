@@ -165,7 +165,7 @@ class HTML_Template_Flexy_Token {
                 continue;
             }
             $add = $child->compile($compiler);
-            if (is_object($add) && is_a($add,'PEAR_Error')) {
+            if ($add instanceof PEAR_Error) {
                 return $add;
             }
             $ret .= $add;
@@ -299,16 +299,14 @@ class HTML_Template_Flexy_Token {
         
   
         for($i=1;$i<$total;$i++) {
-            if (!isset($res[$i]) || !is_object($res[$i]) || !is_a($res[$i],'HTML_Template_Flexy_Token_Text')) {
+            if (!isset($res[$i]) || !$res[$i] instanceof HTML_Template_Flexy_Token_Text) {
                 continue;
             }
             $first = $i;
             $i++;
-            while ($i<$total && is_object($res[$i])  && is_a($res[$i],'HTML_Template_Flexy_Token_Text')) {
-                if (isset($res[$i])) {
-                    $res[$first]->value .= $res[$i]->value;
-                    $res[$i]->value = '';
-                }
+            while ($i < $total && isset($res[$i]) && $res[$i] instanceof HTML_Template_Flexy_Token_Text) {
+                $res[$first]->value .= $res[$i]->value;
+                $res[$i]->value = '';
                 $i++;
             }
         }  
@@ -518,7 +516,7 @@ class HTML_Template_Flexy_Token {
         
         
         $ret =  $this->findVar($parts[0]);
-        if (is_object($ret) && is_a($ret,'PEAR_Error')) {
+        if ($ret instanceof PEAR_Error) {
             return $ret;
         }
         

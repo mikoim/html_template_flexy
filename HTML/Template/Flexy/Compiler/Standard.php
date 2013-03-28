@@ -86,7 +86,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         }
         
         
-        if ($this->is_a($this->options['Translation2'],'Translation2')) {
+        if (is_object($this->options['Translation2']) && is_a($this->options['Translation2'], 'Translation2', false)) {
             $this->options['Translation2']->setLang($this->options['locale']);
             // fixme - needs to be more specific to which template to use..
             foreach ($this->options['templateDir'] as $tt) {
@@ -166,14 +166,14 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
             
         }
         
-        if ($this->is_a($res,'PEAR_Error')) {
+        if ($res instanceof PEAR_Error) {
             return $res;
         }   
         // turn tokens into Template..
         
         $data = $res->compile($this);
         
-        if ($this->is_a($data,'PEAR_Error')) {
+        if ($data instanceof PEAR_Error) {
             return $data;
         }
         
@@ -303,14 +303,14 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         
         $ret = $element->value;
         $add = $element->compileChildren($this);
-        if ($this->is_a($add,'PEAR_Error')) {
+        if ($add instanceof PEAR_Error) {
             return $add;
         }
         $ret .= $add;
         
         if ($element->close) {
             $add = $element->close->compile($this);
-            if ($this->is_a($add,'PEAR_Error')) {
+            if ($add instanceof PEAR_Error) {
                 return $add;
             }
             $ret .= $add;
@@ -401,7 +401,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
     {
     
         $loopon = $element->toVar($element->loopOn);
-        if ($this->is_a($loopon,'PEAR_Error')) {
+        if ($loopon instanceof PEAR_Error) {
             return $loopon;
         }
         
@@ -436,7 +436,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
     {
         
         $var = $element->toVar($element->condition);
-        if ($this->is_a($var,'PEAR_Error')) {
+        if ($var instanceof PEAR_Error) {
             return $var;
         }
         
@@ -520,7 +520,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         // ignore modifier at present!!
         
         $var = $element->toVar($element->value);
-        if ($this->is_a($var,'PEAR_Error')) {
+        if ($var instanceof PEAR_Error) {
             return $var;
         }
         list($prefix,$suffix) = $this->getModifierWrapper($element);
@@ -560,7 +560,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         $object = implode('.',$bits);
         
         $var = $element->toVar($object);
-        if ($this->is_a($var,'PEAR_Error')) {
+        if ($var instanceof PEAR_Error) {
             return $var;
         }
         
@@ -575,7 +575,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         }
         
 
-        if ($this->is_a($var,'PEAR_Error')) {
+        if ($var instanceof PEAR_Error) {
             return $var;
         }
         
@@ -597,7 +597,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
             }
             
             $var = $element->toVar($a);
-            if ($this->is_a($var,'PEAR_Error')) {
+            if ($var instanceof PEAR_Error) {
                 return $var;
             }
             $ret .= $var;
@@ -774,7 +774,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
          
         
         
-        if ($this->is_a($this->options['Translation2'],'Translation2')) {
+        if (is_object($this->options['Translation2']) && is_a($this->options['Translation2'], 'Translation2', false)) {
             $result = $this->options['Translation2']->get($string);
             if (!empty($result)) {
                 return $result;

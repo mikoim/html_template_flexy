@@ -162,7 +162,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
                          null,   HTML_TEMPLATE_FLEXY_ERROR_DIE);
                 }
                 $add = $v[1]->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= ' ' . $add;
@@ -192,7 +192,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
             
             if (is_object($v)) {
                 $add = $v->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
             
@@ -210,7 +210,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
                     continue;
                 }
                 $add = $item->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= $add;
@@ -223,7 +223,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
         if ($element->postfix) {
             foreach ($element->postfix as $e) {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= $add;
@@ -231,7 +231,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
         } else if ($this->element->postfix) { // if postfixed by self..
             foreach ($this->element->postfix as $e) {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
             
@@ -255,7 +255,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
             }
         } else {
             $add = $element->compileChildren($this->compiler);
-            if (is_object($add) && is_a($add,'PEAR_Error')) {
+            if ($add instanceof PEAR_Error) {
                 return $add;
             }
             $ret .= $add;
@@ -267,7 +267,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
         
         if ($element->close) {
             $add = $element->close->compile($this->compiler);
-            if (is_object($add) && is_a($add,'PEAR_Error')) {
+            if ($add instanceof PEAR_Error) {
                 return $add;
             }
             $ret .= $add;

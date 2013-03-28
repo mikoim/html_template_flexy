@@ -111,7 +111,7 @@ class HTML_Template_Flexy_Tree {
         
         // process
         $r = $t->tokenize($data);
-        if (is_object($r) && is_a($r,'PEAR_Error')) {
+        if ($r instanceof PEAR_Error) {
             return $r;
         }
         

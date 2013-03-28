@@ -182,7 +182,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         
         $add = $this->toStringOpenTag($element,$ret);
         
-        if (is_object($add) && is_a($add,'PEAR_Error')) {
+        if ($add instanceof PEAR_Error) {
             return $add;
         }
         
@@ -195,7 +195,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         if ($element->postfix) {
             foreach ($element->postfix as $e) {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= $add;
@@ -203,7 +203,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         } else if ($this->element->postfix) { // if postfixed by self..
             foreach ($this->element->postfix as $e) {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
             
@@ -213,11 +213,11 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
          
         
         $tmp = $this->toStringChildren($element,$ret);
-        if (is_object($tmp) && is_a($tmp,'PEAR_Error')) {
+        if ($tmp instanceof PEAR_Error) {
             return  $tmp;
         }
         $tmp = $this->toStringCloseTag($element,$ret);
-        if (is_object($tmp) && is_a($tmp,'PEAR_Error')) {
+        if ($tmp instanceof PEAR_Error) {
             return  $tmp;
         }
         
@@ -281,7 +281,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
                          null,   HTML_TEMPLATE_FLEXY_ERROR_DIE);
                 }
                 $add = $v[1]->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= ' ' . $add;
@@ -312,7 +312,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
             
             if (is_object($v)) {
                 $add = $v->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
             
@@ -333,7 +333,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
                     continue;
                 }
                 $add = $item->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error')) {
+                if ($add instanceof PEAR_Error) {
                     return $add;
                 }
                 $ret .= $add;
@@ -370,7 +370,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
             return;
         } 
         $add = $element->compileChildren($this->compiler);
-        if (is_object($add) && is_a($add,'PEAR_Error')) {
+        if ($add instanceof PEAR_Error) {
             return $add;
         }
         $ret .= $add;
@@ -394,7 +394,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         if ((! empty($element->tag)) && (! empty($element->oTag)))
         {
             $add = $element->close->compile($this->compiler);
-            if (is_object($add) && is_a($add,'PEAR_Error')) {
+            if ($add instanceof PEAR_Error) {
                 return $add;
             }
             $ret .= $add;
@@ -407,7 +407,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         if ($element->close->postfix)  {
             foreach ($element->close->postfix as $e)  {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error'))  {
+                if ($add instanceof PEAR_Error)  {
                     return $add;
                 }
                 $ret .= $add;
@@ -417,7 +417,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         if ($this->element->close->postfix)  { // if postfixed by self..
             foreach ($this->element->close->postfix as $e)  {
                 $add = $e->compile($this->compiler);
-                if (is_object($add) && is_a($add,'PEAR_Error'))  {
+                if ($add instanceof PEAR_Error)  {
                     return $add;
                 }
             
@@ -761,7 +761,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
             
             for($i =1; $i < count($ar) -1; $i++) {
                 switch(true) {
-                    case (is_object($ar[$i]) && is_a($ar[$i], 'HTML_Template_Flexy_Token_Var')):
+                    case ($ar[$i] instanceof HTML_Template_Flexy_Token_Var):
                         $str .= '. ' . $ar[$i]->toVar($ar[$i]->value). ' ';
                         break;
                     case is_string($ar[$i]):
@@ -812,7 +812,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
                         $ret .= "    {$output_avar} .= {$wrapper}{$item}{$wrapper};\n";
                         continue;
                     }
-                    if (!is_object($item) || !is_a($item, 'HTML_Template_Flexy_Token_Var')) {
+                    if (!$item instanceof HTML_Template_Flexy_Token_Var) {
                         return $this->_raiseErrorWithPositionAndTag(
                             "unsupported type found in attribute, use flexy:ignore to prevent parsing or remove it. " . 
                                 print_r($this->element,true),
@@ -820,7 +820,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
                     }
                     
                     $var = $item->toVar($item->value);
-                    if (is_object($var) && is_a($var, 'PEAR_Error')) {
+                    if ($var instanceof PEAR_Error) {
                         return $var;
                     }
                     list($prefix,$suffix) = $this->compiler->getModifierWrapper($item);
@@ -1088,7 +1088,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         $for = $this->element->getAttribute('FOR');
         $ret = '';
         $tmp = $this->toStringChildren($this->element, $ret);
-        if (is_object($tmp) && is_a($tmp,'PEAR_Error')) {
+        if ($tmp instanceof PEAR_Error) {
             return $tmp;
         }
 
@@ -1274,25 +1274,25 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         if (!is_object($e)) {
             return false;
         }
-        if (is_a($e,'HTML_Template_Flexy_Token_Var')) {
+        if ($e instanceof HTML_Template_Flexy_Token_Var) {
             return true;
         }
-        if (is_a($e,'HTML_Template_Flexy_Token_Foreach')) {
+        if ($e instanceof HTML_Template_Flexy_Token_Foreach) {
             return true;
         }
-        if (is_a($e,'HTML_Template_Flexy_Token_If')) {
+        if ($e instanceof HTML_Template_Flexy_Token_If) {
             return true;
         }
-        if (is_a($e,'HTML_Template_Flexy_Token_Method')) {
+        if ($e instanceof HTML_Template_Flexy_Token_Method) {
             return true;
         }
-        if (!is_a($e,'HTML_Template_Flexy_Token_Tag')) {
+        if (!$e instanceof HTML_Template_Flexy_Token_Tag) {
             return false;
         }
-        if  ($e->getAttribute('FLEXY:IF')  !== false) {
+        if ($e->getAttribute('FLEXY:IF') !== false) {
             return true;
         }
-        if  ($e->getAttribute('FLEXY:FOREACH')  !== false) {
+        if ($e->getAttribute('FLEXY:FOREACH') !== false) {
             return true;
         }   
         foreach($e->attributes as $k=>$v) {
