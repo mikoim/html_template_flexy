@@ -462,6 +462,8 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
         
         $suffix = '';
         $modifier = strlen(trim($element->modifier)) ? $element->modifier : ' ';
+        $charset = empty($GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset']) ? 'UTF-8' : $GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset'];
+        $charset_expr = var_export($charset, true);
         
         switch ($modifier{0}) {
             case 'h':
@@ -472,7 +474,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
                 break;
             case 'r':
                 $prefix = 'echo \'<pre>\'; echo htmlspecialchars(print_r(';
-                $suffix = ',true)); echo \'</pre>\';';
+                $suffix = ',true),ENT_COMPAT,' . $charset_expr . '); echo \'</pre>\';';
                 break;                
             case 'n': 
                 // blank or value..
@@ -484,12 +486,12 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
                 $prefix = 'echo nl2br(htmlspecialchars(';
                 
                 // add language ?
-                $suffix = '))';
+                $suffix = ',ENT_COMPAT,' . $charset_expr . '))';
                 break;
             case ' ':
                 $prefix = 'echo htmlspecialchars(';
                 // add language ?
-                $suffix = ')';
+                $suffix = ',ENT_COMPAT,' . $charset_expr . ')';
                 break;
             default:
                $prefix = 'echo $this->plugin("'.trim($element->modifier) .'",';

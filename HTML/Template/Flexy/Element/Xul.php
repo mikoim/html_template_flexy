@@ -152,6 +152,9 @@ class HTML_Template_Flexy_Element_Xul {
                 HTML_TEMPLATE_FLEXY_ERROR_SYNTAX,
                 HTML_TEMPLATE_FLEXY_ERROR_DIE);
         }
+
+        $charset = empty($GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset']) ? 'UTF-8' : $GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset'];
+
         foreach($array as $k=>$v) {
             
             $atts=array();
@@ -160,7 +163,7 @@ class HTML_Template_Flexy_Element_Xul {
             } else {
                 $atts = array('value'=>$v);
             }
-            $atts['label'] = htmlspecialchars($v);
+            $atts['label'] = htmlspecialchars($v, ENT_COMPAT, $charset);
             $atts['/'] = true;
             $add = new HTML_Template_Flexy_Element($namespace . 'menuitem',$atts);
             $element->children[0]->children[] = $add;

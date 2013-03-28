@@ -1096,11 +1096,14 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
             return $tmp;
         }
 
+        $charset = empty($GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset']) ? 'UTF-8' : $GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions']['charset'];
+        $charset_expr = var_export($charset, true);
+
         return $this->compiler->appendPhp(
                 'echo "<label for=\"' . $for . '\">";' . 
                 'if (!empty($this->elements[\'' . $for . '\']->label)) ' .
-                ' { echo htmlspecialchars($this->elements[\'' . $for . '\']->label); } else { ?>' .
-                htmlspecialchars($ret) . '<? } ' .
+                ' { echo htmlspecialchars($this->elements[\'' . $for . '\']->label,ENT_COMPAT,' . $charset_expr . '); } else { ?>' .
+                htmlspecialchars($ret, ENT_COMPAT, $charset) . '<? } ' .
                 'echo "</label>";'
             );
     }    
