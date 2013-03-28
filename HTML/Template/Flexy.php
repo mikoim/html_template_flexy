@@ -31,23 +31,6 @@ $GLOBALS['_HTML_TEMPLATE_FLEXY'] = array();
 
 // ERRORS:
 
-/**
- * Workaround for stupid depreciation of is_a...
- */
-function HTML_Template_Flexy_is_a($obj, $class)  // which f***wit depreciated is_a....
-{
-    if (version_compare(phpversion(),"5","<")) {
-       return is_object($obj) &&  is_a($obj, $class);
-       
-    } 
-    $test=false; 
-    @eval("\$test = \$obj instanceof ".$class.";");
-    return $test;
-
-}
-
-
-
 define('HTML_TEMPLATE_FLEXY_ERROR_SYNTAX',-1);  // syntax error in template.
 define('HTML_TEMPLATE_FLEXY_ERROR_INVALIDARGS',-2);  // bad arguments to methods.
 define('HTML_TEMPLATE_FLEXY_ERROR_FILE',-2);  // file access problem
@@ -461,7 +444,7 @@ class HTML_Template_Flexy
         require_once 'HTML/Template/Flexy/Compiler.php';
         $compiler = HTML_Template_Flexy_Compiler::factory($this->options);
         $ret = $compiler->compile($this);
-        if (HTML_Template_Flexy_is_a($ret,'PEAR_Error')) {
+        if (is_a($ret,'PEAR_Error')) {
             return $this->raiseError('HTML_Template_Flexy fatal error:' .$ret->message,
                 $ret->code,  HTML_TEMPLATE_FLEXY_ERROR_DIE);
         }
@@ -631,7 +614,7 @@ class HTML_Template_Flexy
     {  
         
         
-        if (HTML_Template_Flexy_is_a($this,'HTML_Template_Flexy')) {
+        if (is_a($this,'HTML_Template_Flexy')) {
             if (!$this->options['debug']) {
                 return;
             }
@@ -709,7 +692,7 @@ class HTML_Template_Flexy
     {
         HTML_Template_Flexy::debug("<B>HTML_Template_Flexy::raiseError</B>$message");
         require_once 'PEAR.php';
-        if (HTML_Template_Flexy_is_a($this,'HTML_Template_Flexy') &&  ($fatal == HTML_TEMPLATE_FLEXY_ERROR_DIE)) {
+        if (is_a($this,'HTML_Template_Flexy') &&  ($fatal == HTML_TEMPLATE_FLEXY_ERROR_DIE)) {
             // rewrite DIE!
             return PEAR::raiseError($message, $type, $this->options['fatalError']);
         }
