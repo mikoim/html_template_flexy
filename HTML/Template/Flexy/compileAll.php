@@ -21,7 +21,7 @@
 
 @include 'HTML/Template/Flexy.php';
 if (!class_exists('HTML_Template_Flexy')) {
-    ini_set('include_path',dirname(__FILE__).'/../../../');
+    ini_set('include_path',__DIR__.'/../../../');
     include 'HTML/Template/Flexy.php';
 }
 require_once 'PEAR.php';

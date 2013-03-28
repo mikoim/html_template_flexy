@@ -4,7 +4,7 @@ require_once 'HTML/Template/Flexy.php';
 //print_r($_SERVER['argv']);
 
 if (!isset($_SERVER['argv'][1])) {
-    $files = array(dirname(__FILE__) . '/index.tpl');
+    $files = array(__DIR__ . '/index.tpl');
 } else {
     $files =$_SERVER['argv'];
     array_shift($files);
@@ -13,7 +13,7 @@ if (!isset($_SERVER['argv'][1])) {
 foreach($files as $file) {
     $dir = dirname($file);
     $x = new HTML_Template_Flexy(array(
-                    'compileDir'    =>  dirname(__FILE__) ,      // where do you want to write to..
+                    'compileDir'    =>  __DIR__ ,      // where do you want to write to..
                     'templateDir'   =>  $dir ,     // where are your templates
                     'locale'        => 'en',    // works with gettext
                     'forceCompile'  =>  true,  // only suggested for debugging

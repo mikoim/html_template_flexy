@@ -10,12 +10,12 @@ function getAll() {
     
     // loop through 
     $ret = array();
-    $dh = opendir(dirname(__FILE__).'/templates/');
+    $dh = opendir(__DIR__.'/templates/');
     while (false !== ($file = readdir($dh))) {
         if ($file{0} == '.') {
             continue;
         }
-        if (is_dir(dirname(__FILE__).'/templates/'.$file)) {
+        if (is_dir(__DIR__.'/templates/'.$file)) {
             continue;
         }
         $ret[] = $file;
@@ -25,14 +25,14 @@ function getAll() {
 }
 
 require_once 'System.php';
-System::mkdir(dirname(__FILE__)."/trees");
+System::mkdir(__DIR__."/trees");
 foreach (getAll() as $file) {
     echo "Building tree for $file\n";
     $tree =  HTML_Template_Flexy_Tree::construct(
-        file_get_contents(dirname(__FILE__).'/templates/'.$file)
+        file_get_contents(__DIR__.'/templates/'.$file)
         );
     
-    $fh = fopen(dirname(__FILE__)."/trees/{$file}.tree",'w');
+    $fh = fopen(__DIR__."/trees/{$file}.tree",'w');
     fwrite($fh, print_r($tree,true));
     fclose($fh);
     

@@ -9,12 +9,12 @@ require_once 'HTML/Template/Flexy.php';
 function compileAll($options, $files=array()) {
     
     // loop through 
-    $dh = opendir(dirname(__FILE__).'/templates/');
+    $dh = opendir(__DIR__.'/templates/');
     while (false !== ($file = readdir($dh))) {
         if ($file{0} == '.') {
             continue;
         }
-        if (is_dir(dirname(__FILE__).'/templates/'.$file)) {
+        if (is_dir(__DIR__.'/templates/'.$file)) {
             continue;
         }
         // skip if not listed in files (and it's an array)
@@ -36,7 +36,7 @@ function compileAll($options, $files=array()) {
 
 $options =  array(
     
-    'templateDir'   =>  dirname(__FILE__) .'/templates',            // where are your templates
+    'templateDir'   =>  __DIR__ .'/templates',            // where are your templates
     'forceCompile'  =>  true,  // only suggested for debugging
     'fatalError'  =>  HTML_TEMPLATE_FLEXY_ERROR_RETURN,  // only suggested for debugging
     'url_rewrite' => 'images/:/myproject/images/',
@@ -45,7 +45,7 @@ $options =  array(
 );
 // basic options..
 
-$options['compileDir']    =  dirname(__FILE__) .'/results1';
+$options['compileDir']    =  __DIR__ .'/results1';
 
 
 $a = $_SERVER['argv'];
@@ -62,7 +62,7 @@ $options['allowPHP']      =  true;
 compileAll($options,$a);
 
 echo "PASS TWO: Compile when globals / privates etc. found\n";
-$options['compileDir']    =  dirname(__FILE__) .'/results2';
+$options['compileDir']    =  __DIR__ .'/results2';
 // test GLOBALS, privates etc.
 $options['globals']         =  true;
 $options['privates']        =  true;
@@ -96,7 +96,7 @@ $elements['xhtmllisttest']->setValue('bbb');
 
 // write the data to a file.
 $data = $x->bufferedOutputObject($tmp,$elements);
-$fh = fopen(dirname(__FILE__) . '/results2/forms.result.html','w');
+$fh = fopen(__DIR__ . '/results2/forms.result.html','w');
 fwrite($fh,$data);
 fclose($fh);
 
@@ -111,7 +111,7 @@ $tmp = new StdClass;
 $tmp->a_value= "test1";
 
 $data = $x->bufferedOutputObject($tmp,$elements);
-$fh = fopen(dirname(__FILE__) . '/results2/function.result.html','w');
+$fh = fopen(__DIR__ . '/results2/function.result.html','w');
 fwrite($fh,$data);
 fclose($fh);
 

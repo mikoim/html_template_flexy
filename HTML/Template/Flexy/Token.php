@@ -94,7 +94,7 @@ class HTML_Template_Flexy_Token {
         
         if (!class_exists($c) && !isset($loaded[$token])) {
             // make sure parse errors are picked up - no  @ here..
-            if (file_exists(dirname(__FILE__)."/Token/{$token}.php")) {
+            if (file_exists(__DIR__."/Token/{$token}.php")) {
                 require_once 'HTML/Template/Flexy/Token/'.$token.'.php';
             }
             $loaded[$token] = true;

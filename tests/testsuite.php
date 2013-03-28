@@ -7,16 +7,16 @@ function compilefile($file,$data =array(),$options=array(),$elements=array()) {
     
     $options = $options + array(
         
-        'templateDir'   =>  dirname(__FILE__) .'/templates',            // where are your templates
+        'templateDir'   =>  __DIR__ .'/templates',            // where are your templates
         'forceCompile'  =>  true,  // only suggested for debugging
         'fatalError'    =>  HTML_TEMPLATE_FLEXY_ERROR_RETURN,  // only suggested for debugging
         'url_rewrite'   => 'images/:/myproject/images/',
-        'compileDir'    =>  dirname(__FILE__) .'/results1',
+        'compileDir'    =>  __DIR__ .'/results1',
     );
 
 // basic options..
     echo "\n\n===Compiling $file===\n\n";
-    $options['compileDir']    =  dirname(__FILE__) .'/results1';
+    $options['compileDir']    =  __DIR__ .'/results1';
     
     $x = new HTML_Template_Flexy($options);
     $res = $x->compile($file);

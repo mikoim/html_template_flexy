@@ -24,7 +24,7 @@
 // Used to test parsing and generation.
 //
 
-//ini_set('include_path', ini_get('include_path').realpath(dirname(__FILE__) . '/../../..'));
+//ini_set('include_path', ini_get('include_path').realpath(__DIR__ . '/../../..'));
 require_once 'Gtk/VarDump.php';
 require_once 'Console/Getopt.php';
 require_once 'HTML/Template/Flexy.php';
@@ -39,7 +39,7 @@ class HTML_Template_Flexy_Test {
     {
         // for testing!
         $GLOBALS['_HTML_TEMPLATE_FLEXY']['currentOptions'] = array(
-            'compileDir' => dirname(__FILE__),
+            'compileDir' => __DIR__,
             'locale' => 'en',
           
         

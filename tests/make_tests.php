@@ -1,17 +1,17 @@
 <?php
 
 
-    $dh = opendir(dirname(__FILE__).'/templates/');
+    $dh = opendir(__DIR__.'/templates/');
     $id = 0;
     while (false !== ($file = readdir($dh))) {
         if ($file{0} == '.') {
             continue;
         }
-        if (is_dir(dirname(__FILE__).'/templates/'.$file)) {
+        if (is_dir(__DIR__.'/templates/'.$file)) {
             continue;
         }
         $id++;
-        $test = dirname(__FILE__)."/test_{$file}.phpt";
+        $test = __DIR__."/test_{$file}.phpt";
         if (file_exists($test)) {
             continue;
         }

@@ -468,7 +468,7 @@ class HTML_Template_Flexy_Translator {
     function outputDefaultTemplate() {
         $o = array(
             'compileDir' => ini_get('session.save_path') . '/HTML_Template_Flexy_Translate',
-            'templateDir' => dirname(__FILE__).'/templates'
+            'templateDir' => __DIR__.'/templates'
         );
         $x = new HTML_Template_Flexy( $o );
         $x->compile('translator.html');

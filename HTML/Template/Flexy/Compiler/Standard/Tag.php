@@ -63,7 +63,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
             $type = 'Tag';
         }
         // if we dont have a handler - just use the basic handler.
-        if (!file_exists(dirname(__FILE__) . '/'. ucfirst(strtolower($type)) . '.php')) {
+        if (!file_exists(__DIR__ . '/'. ucfirst(strtolower($type)) . '.php')) {
             $type = 'Tag';
         }
             

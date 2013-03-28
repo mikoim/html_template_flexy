@@ -30,7 +30,7 @@ a simple script: 'convertsmarty.php'
 #!/usr/bin/php
    $file = $_SERVER['argv'][1];
    $x = new HTML_Template_Flexy(array(
-                    'compileDir'    =>  dirname(__FILE__) ,      // where do you want to write to..
+                    'compileDir'    =>  __DIR__ ,      // where do you want to write to..
                     'templateDir'   =>  $dir ,     // where are your templates
                     'locale'        => 'en',    // works with gettext
                     'forceCompile'  =>  true,  // only suggested for debugging
