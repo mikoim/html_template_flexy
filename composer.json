@@ -7,6 +7,15 @@
         "classmap": ["HTML/"]
     },
     "include-path": ["/"],
+    "archive": {
+        "exclude": [
+            "/ChangeLog",
+            "/TODO",
+            "/examples",
+            "/package.xml",
+            "/tests"
+        ]
+    },
     "repositories": [
         {
             "type": "pear",
