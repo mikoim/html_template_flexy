@@ -19,6 +19,10 @@
 //
 
 require_once 'PEAR.php';
+require_once 'HTML/Template/Flexy/Assign.php';
+require_once 'HTML/Template/Flexy/Compiler.php';
+require_once 'HTML/Template/Flexy/Element.php';
+require_once 'HTML/Template/Flexy/Plugin.php';
 
 /**
 *   @package    HTML_Template_Flexy
@@ -439,7 +443,6 @@ class HTML_Template_Flexy
         
         if( !@is_dir($compileDest) || !is_writeable($compileDest)) {
             require_once 'System.php';
-            
             System::mkdir(array('-p',$compileDest));
         }
         if( !@is_dir($compileDest) || !is_writeable($compileDest)) {
@@ -458,8 +461,6 @@ class HTML_Template_Flexy
         }
          
         // Compile the template in $file. 
-        
-        require_once 'HTML/Template/Flexy/Compiler.php';
         $compiler = HTML_Template_Flexy_Compiler::factory($this->options);
         $ret = $compiler->compile($this);
         if ($ret instanceof PEAR_Error) {
@@ -486,8 +487,6 @@ class HTML_Template_Flexy
     */
     function compileAll($dir = '',$regex='/.html$/')
     {
-        
-        require_once 'HTML/Template/Flexy/Compiler.php';
         $c = new HTML_Template_Flexy_Compiler;
         $c->compileAll($this,$dir,$regex);
     } 
@@ -704,7 +703,6 @@ class HTML_Template_Flexy
     function getElements() {
     
         if ($this->elementsFile && file_exists($this->elementsFile)) {
-            require_once 'HTML/Template/Flexy/Element.php';
             return unserialize(file_get_contents($this->elementsFile));
         }
         return array();
@@ -763,7 +761,6 @@ class HTML_Template_Flexy
     */
   
     function setData() {
-        require_once 'HTML/Template/Flexy/Assign.php';
         // load assigner..
         if (!isset($this->assign)) {
             $this->assign = new HTML_Template_Flexy_Assign;
@@ -786,7 +783,6 @@ class HTML_Template_Flexy
     */
         
     function setDataByRef($k,&$v) {
-        require_once 'HTML/Template/Flexy/Assign.php';
         // load assigner..
         if (!isset($this->assign)) {
             $this->assign = new HTML_Template_Flexy_Assign;
@@ -807,7 +803,6 @@ class HTML_Template_Flexy
     * @status alpha
     */
     function plugin() {
-        require_once 'HTML/Template/Flexy/Plugin.php';
         // load pluginManager.
         if (!isset($this->plugin)) {
             $this->plugin = new HTML_Template_Flexy_Plugin;
