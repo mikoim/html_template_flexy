@@ -6,6 +6,7 @@
     "autoload": {
         "classmap": ["HTML/"]
     },
+    "include-path": ["/"],
     "repositories": [
         {
             "type": "pear",
