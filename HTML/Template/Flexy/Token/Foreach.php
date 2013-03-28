@@ -65,8 +65,3 @@ class HTML_Template_Flexy_Token_Foreach extends HTML_Template_Flexy_Token {
      
 
 }
-
- 
- 
-   
- 

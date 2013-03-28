@@ -753,4 +753,3 @@ class HTML_Template_Flexy_Plugin_Savant {
         return $output;
     }
 }
-

@@ -54,4 +54,3 @@ set_time_limit(0);
 //DB_DataObject::debugLevel(5);
 $flexy= new HTML_Template_Flexy;
 $flexy->compileAll();
-?>

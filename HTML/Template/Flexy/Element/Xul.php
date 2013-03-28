@@ -172,4 +172,4 @@ class HTML_Template_Flexy_Element_Xul {
     
     
     
-} // end class HTML_Template_Flexy_Element
+}

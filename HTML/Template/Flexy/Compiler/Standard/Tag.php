@@ -889,5 +889,3 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
     }
 
 }
-
- 

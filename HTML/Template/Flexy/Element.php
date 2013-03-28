@@ -752,4 +752,4 @@ class HTML_Template_Flexy_Element {
     
     
     
-} // end class HTML_Template_Flexy_Element
+}

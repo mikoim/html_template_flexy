@@ -46,5 +46,3 @@ class HTML_Template_Flexy_Compiler_Regex_RtfSimpleTags extends HTML_Template_Fle
     
     
 }
-
-?>

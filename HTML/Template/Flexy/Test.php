@@ -113,4 +113,3 @@ class HTML_Template_Flexy_Test {
 
 
 new HTML_Template_Flexy_Test;
-?>

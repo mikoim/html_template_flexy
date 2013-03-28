@@ -49,5 +49,3 @@ class HTML_Template_Flexy_Token_Var extends HTML_Template_Flexy_Token {
      
 
 }
- 
- 
