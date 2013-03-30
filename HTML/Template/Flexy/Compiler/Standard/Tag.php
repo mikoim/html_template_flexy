@@ -58,7 +58,8 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
     * @access   public
     */
     
-    function &factory($type,&$compiler) {
+    public static function factory($type, $compiler)
+    {
         if (!$type) {
             $type = 'Tag';
         }
@@ -74,7 +75,7 @@ class HTML_Template_Flexy_Compiler_Standard_Tag {
             return false;
         }
         $ret = new $class;
-        $ret->compiler = &$compiler;
+        $ret->compiler = $compiler;
         return $ret;
     }
         

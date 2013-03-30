@@ -51,7 +51,7 @@ class HTML_Template_Flexy_Compiler {
     * @return   object    The Compiler Object
     * @access   public
     */
-    function factory($options) 
+    public static function factory($options)
     {
         if (empty($options['compiler'])) {
             $options['compiler'] = 'Flexy';
@@ -119,10 +119,9 @@ class HTML_Template_Flexy_Compiler {
     * @return   string to be output
     * @access   public
     */
-    
-    function compileAll(&$flexy, $dir = '',$regex='/.html$/')
+    public function compileAll($flexy, $dir = '',$regex='/.html$/')
     {
-        $this->flexy = &$flexy;
+        $this->flexy = $flexy;
         $this->compileDir($dir,$regex);
     }
     

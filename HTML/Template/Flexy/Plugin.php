@@ -93,14 +93,14 @@ class HTML_Template_Flexy_Plugin
                 if (!is_int($cname)) {
                     include_once $file;
                     $this->plugins[$cname] = new $cname;
-                    $this->plugins[$cname]->flexy = &$this->flexy;
+                    $this->plugins[$cname]->flexy = $this->flexy;
                     continue;
                 }
                 $cname = $file;
                 require_once 'HTML/Template/Flexy/Plugin/'. $cname . '.php';
                 $class = "HTML_Template_Flexy_Plugin_{$cname}";
                 $this->plugins[$class] = new $class;
-                $this->plugins[$class]->flexy = &$this->flexy;
+                $this->plugins[$class]->flexy = $this->flexy;
             }
         }
                 

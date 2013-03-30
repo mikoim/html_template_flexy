@@ -92,7 +92,7 @@ class HTML_Template_Flexy_Token {
         
         $c = 'HTML_Template_Flexy_Token_'.$token;
         
-        if (!class_exists($c) && !isset($loaded[$token])) {
+        if (!class_exists($c, false) && !isset($loaded[$token])) {
             // make sure parse errors are picked up - no  @ here..
             if (file_exists(__DIR__."/Token/{$token}.php")) {
                 require_once 'HTML/Template/Flexy/Token/'.$token.'.php';
@@ -102,7 +102,7 @@ class HTML_Template_Flexy_Token {
             
         $t = new HTML_Template_Flexy_Token;
         
-        if (class_exists($c)) {
+        if (class_exists($c, false)) {
             $t = new $c;
         }
         $t->token = $token;

@@ -504,9 +504,7 @@ class HTML_Template_Flexy
     *   @param    array  HTML_Template_Flexy_Elements (or any object that implements toHtml())
     *   @return     none
     */
-    
-    
-    function outputObject(&$t,$elements=array()) 
+    public function outputObject($t, $elements = array())
     {
         if (!is_array($elements)) {
             return self::raiseError(
@@ -604,7 +602,7 @@ class HTML_Template_Flexy
     *   @param      object object to output as $t
     *   @return     string - result
     */
-    function bufferedOutputObject(&$t,$elements=array()) 
+    public function bufferedOutputObject($t, $elements = array())
     {
         ob_start();
         $this->outputObject($t,$elements);
@@ -624,7 +622,7 @@ class HTML_Template_Flexy
     *   @param      filename of template
     *   @return     string - result
     */
-    function &staticQuickTemplate($file,&$t) 
+    public static function staticQuickTemplate($file, $t)
     {
         $template = new HTML_Template_Flexy;
         $template->compile($file);

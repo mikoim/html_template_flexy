@@ -58,8 +58,8 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
     * @return    object    tag compiler
     * @access   public
     */
-    
-    function &factory($type,&$compiler) {
+    public static function factory($type, $compiler)
+    {
         if (!$type) {
             $type = 'Tag';
         }
