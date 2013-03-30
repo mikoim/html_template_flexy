@@ -557,7 +557,7 @@ class HTML_Template_Flexy
         
         $_error_reporting = false;
         if (!$this->options['strict']) {
-            $_error_reporting = error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+            $_error_reporting = error_reporting(E_ALL & ~(E_NOTICE | E_STRICT | E_DEPRECATED));
         }
         if (!is_readable($this->compiledTemplate)) {
             return self::raiseError(
