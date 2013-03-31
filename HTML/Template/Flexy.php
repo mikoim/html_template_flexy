@@ -58,7 +58,7 @@ define('HTML_TEMPLATE_FLEXY_ERROR_DIE',8);  // FATAL DEATH
 *
 * Notes:
 * $options can be blank if so, it is read from 
-* PEAR::getStaticProperty('HTML_Template_Flexy','options');
+* PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
 *
 * the first argument to outputObject is an object (which could even be an 
 * associateve array cast to an object) - I normally send it the controller class.
@@ -212,43 +212,30 @@ class HTML_Template_Flexy
     *   Constructor 
     *
     *   Initializes the Template engine, for each instance, accepts options or
-    *   reads from PEAR::getStaticProperty('HTML_Template_Flexy','options');
+    *   reads from PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
     *
     *   @access public
     *   @param    array    $options (Optional)
     */
-      
     public function __construct(array $options = array())
     {
-        
-        $baseoptions = array();
-        if (class_exists('PEAR5',false)) {
-            $baseoptions = &PEAR5::getStaticProperty('HTML_Template_Flexy','options');
+        $baseoptions = PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+        if (!is_array($baseoptions)) {
+            $baseoptions = array();
         }
-        if (empty($baseoptions) && class_exists('PEAR')) {
-            $baseoptions = &PEAR::getStaticProperty('HTML_Template_Flexy','options');
-        }
-        if ($baseoptions ) {
-            foreach( $baseoptions as  $key=>$aOption)  {
-                $this->options[$key] = $aOption;
-            }
-        }
-        
-        foreach( $options as $key=>$aOption)  {
-           $this->options[$key] = $aOption;
-        }
-        
+        $this->options = array_merge($this->options, $baseoptions, $options);
+
         $filters = $this->options['filters'];
         if (is_string($filters)) {
-            $this->options['filters']= explode(',',$filters);
+            $this->options['filters']= explode(',', $filters);
         }
-        
-        if (is_string($this->options['templateDir'])) {
-            $this->options['templateDir'] = explode(PATH_SEPARATOR,$this->options['templateDir'] );
+
+        $templateDir = $this->options['templateDir'];
+        if (is_string($templateDir)) {
+            $this->options['templateDir'] = explode(PATH_SEPARATOR, $templateDir);
         }
-         
-       
     }
+
     /**
      * given a file, return the possible templates that will becompiled.
      *
