@@ -60,8 +60,9 @@ class HTML_Template_Flexy_Compiler_Regex_SimpleTags
     * @param   object HTML_Template_Flexy   the main engine
     * @access   private
     */
-    function _set_engine(&$engine) {
-        $this->engine = &$engine;
+    function _set_engine($engine)
+    {
+        $this->engine = $engine;
         if ($this->engine->options['debug']) {
             $this->error = "";
         }

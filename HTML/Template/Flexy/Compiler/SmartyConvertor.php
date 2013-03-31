@@ -75,8 +75,7 @@ class HTML_Template_Flexy_Compiler_SmartyConvertor extends HTML_Template_Flexy_C
     * @return   true | string   string when compiling to String.
     * @access   public
     */
-  
-    function compile(&$flexy,$string=false) 
+    public function compile($flexy, $string = false)
     {
         $data = $string;
         if ($string === false) {

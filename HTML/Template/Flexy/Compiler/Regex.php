@@ -21,9 +21,9 @@ class HTML_Template_Flexy_Compiler_Regex {
     *   @author     Alan Knowles <alan@akbkhome.com>
     *   @return   boolean (basically true all the time here)
     */
-    function compile(&$flexy)
+    function compile($flexy)
     {
-        $this->flexy = &$flexy;
+        $this->flexy = $flexy;
         // read the entire file into one variable
         $fileContent = file_get_contents($flexy->currentTemplate);
          
@@ -67,7 +67,7 @@ class HTML_Template_Flexy_Compiler_Regex {
                 $this->filter_objects[$class] = new $class;
                 $this->filter_objects[$class]->_set_engine($this);
             }
-            $filter = &$this->filter_objects[$class];
+            $filter = $this->filter_objects[$class];
             $methods = get_class_methods($class);
             $this->flexy->debug("METHODS:");
             $this->flexy->debug(serialize($methods)."<BR>");

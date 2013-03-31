@@ -65,9 +65,9 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         }
         
         $class = 'HTML_Template_Flexy_Compiler_Flexy_' . $type;
-        if ($compiler->classExists($class)) {
+        if (class_exists($class, false)) {
             $ret = new $class;
-            $ret->compiler = &$compiler;
+            $ret->compiler = $compiler;
             return $ret;    
         }
         
@@ -84,7 +84,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
         include_once 'HTML/Template/Flexy/Compiler/Flexy/' . ucfirst(strtolower($type)) . '.php';
         
         $class = 'HTML_Template_Flexy_Compiler_Flexy_' . $type;
-        if (!$compiler->classExists($class)) {
+        if (!class_exists($class, false)) {
             $ret = false;
             return $ret;
         }
@@ -249,8 +249,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
      * @return none? or pear error.
      * 
      */
-    
-    function toStringOpenTag(&$element,&$ret)
+    function toStringOpenTag($element, &$ret)
 	{
 		// START ADDITION...
 		if ((empty($element->tag)) || (empty($element->oTag))) {
@@ -347,8 +346,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
      * @arg inout output string to template
      * @return none? or pear error.
      */
-	
-	function toStringChildren(&$element,&$ret)
+    function toStringChildren($element, &$ret)
 	{
 		 // dump contents of script raw - to prevent gettext additions..
         //  print_r($element);
@@ -382,8 +380,7 @@ class HTML_Template_Flexy_Compiler_Flexy_Tag
      * @arg inout output string to template
      * @return none? or pear error.
      */
-	
-	function toStringCloseTag(&$element,&$ret)
+    function toStringCloseTag($element, &$ret)
 	{
 		// output the closing tag.
 		//  If the tag is empty don't output closing tags, just output postfixes if any exist...

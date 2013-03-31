@@ -49,7 +49,7 @@ class HTML_Template_Flexy_Compiler_Flexy extends HTML_Template_Flexy_Compiler {
     * @return   string   filename of template
     * @access   public
     */
-    function compile(&$flexy, $string=false) 
+    public function compile($flexy, $string = false)
     {
         // read the entire file into one variable
         
@@ -918,7 +918,7 @@ class HTML_Template_Flexy_Compiler_Flexy extends HTML_Template_Flexy_Compiler {
             //echo '<PRE>'.htmlspecialchars(print_r($GLOBALS['_'.__CLASS__]['PO'][$pofile]->strings,true));
             
         }
-        $po = &$GLOBALS['_'.__CLASS__]['PO'][$pofile];
+        $po = $GLOBALS['_'.__CLASS__]['PO'][$pofile];
         // we should have it loaded now...
         // this is odd - data is a bit messed up with CR's
         $string = str_replace('\n', "\n", $string);
@@ -982,7 +982,7 @@ class HTML_Template_Flexy_Compiler_Flexy extends HTML_Template_Flexy_Compiler {
         if (empty($this->tagHandlers[$namespace])) {
             
             require_once 'HTML/Template/Flexy/Compiler/Flexy/Tag.php';
-            $this->tagHandlers[$namespace] = &HTML_Template_Flexy_Compiler_Flexy_Tag::factory($namespace, $this);
+            $this->tagHandlers[$namespace] = HTML_Template_Flexy_Compiler_Flexy_Tag::factory($namespace, $this);
             if (!$this->tagHandlers[$namespace] ) {
                 return HTML_Template_Flexy::raiseError('HTML_Template_Flexy::failed to create Namespace Handler '.$namespace . 
                     ' in file ' . $GLOBALS['_HTML_TEMPLATE_FLEXY']['filename'],
@@ -994,14 +994,4 @@ class HTML_Template_Flexy_Compiler_Flexy extends HTML_Template_Flexy_Compiler {
         
         
     }
-     /**
-     * PHP5 compat - arg...
-     * - where else does this affect
-     */
-    function classExists($class)
-    {
-        return (substr(phpversion(),0,1) < 5) ? class_exists($class) :  class_exists($class,false);
-    }
-
-
 }

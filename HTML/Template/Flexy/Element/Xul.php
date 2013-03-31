@@ -34,8 +34,8 @@ class HTML_Template_Flexy_Element_Xul {
      * @param    mixed   $value  value to use.
      * @access   public
      */
-     
-    function setValue(&$element,$value) {
+    public function setValue($element, $value)
+    {
         // store the value in all situations
         $element->value = $value;
         $tag = $element->tag;
@@ -69,7 +69,7 @@ class HTML_Template_Flexy_Element_Xul {
                 // it will be done at the merge stage anyway..
                 
                 foreach(array_keys($element->children[0]->children) as $i) {
-                    $child = &$element->children[0]->children[$i];
+                    $child = $element->children[0]->children[$i];
                     
                     if (is_string($child)) {
                         continue;
@@ -125,8 +125,8 @@ class HTML_Template_Flexy_Element_Xul {
      * @param    HTML_Element   $noValue  ignore the key part of the array
      * @access   public
      */
-     
-    function setOptions(&$element, $array,$noValue=false) {
+    public function setOptions($element, $array, $noValue = false)
+    {
         if (!is_array($array)) {
             $element->children = array();
             return;

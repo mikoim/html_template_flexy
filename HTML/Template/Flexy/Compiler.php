@@ -32,9 +32,8 @@
 $GLOBAL['_HTML_TEMPLATE_FLEXY_COMPILER'] = array();
 
 
-class HTML_Template_Flexy_Compiler {
-
-        
+abstract class HTML_Template_Flexy_Compiler
+{
     /**
     * Options 
     *
@@ -76,11 +75,8 @@ class HTML_Template_Flexy_Compiler {
     * @return   string   to compile (if not using a file as the source)
     * @access   public
     */
-    function compile(&$flexy,$string = false) 
-    {
-        echo "No compiler implemented!";
-    }
-     
+    abstract public function compile($flexy, $string = false);
+
     /**
     * Append HTML to compiled ouput
     * These are hooks for passing data to other processes

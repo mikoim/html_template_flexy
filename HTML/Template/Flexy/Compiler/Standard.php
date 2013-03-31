@@ -50,7 +50,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
     * @return   string   filename of template
     * @access   public
     */
-    function compile(&$flexy,$string=false) 
+    public function compile($flexy, $string = false)
     {
         // read the entire file into one variable
         
@@ -849,7 +849,7 @@ class HTML_Template_Flexy_Compiler_Standard extends HTML_Template_Flexy_Compiler
             //echo '<PRE>'.htmlspecialchars(print_r($GLOBALS['_'.__CLASS__]['PO'][$pofile]->strings,true));
             
         }
-        $po = &$GLOBALS['_'.__CLASS__]['PO'][$pofile];
+        $po = $GLOBALS['_'.__CLASS__]['PO'][$pofile];
         // we should have it loaded now...
         // this is odd - data is a bit messed up with CR's
         $string = str_replace('\n',"\n",$string);

@@ -668,21 +668,15 @@ class HTML_Template_Flexy
      *
      * @access   public
      */
-     
-    function mergeElement($original,$new)
+    public function mergeElement($original, $new)
     {
-       	    // Clone objects is possible to avoid creating references between elements
-         
         // no original - return new
         if (!$original) {
             return clone $new;
         }
         return $original->merge($new);
-        
-        
     }  
-     
-     
+
     /**
     * Get an array of elements from the template
     *

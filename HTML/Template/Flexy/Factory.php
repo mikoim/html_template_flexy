@@ -97,7 +97,7 @@ class HTML_Template_Flexy_Factory {
     *
     * @depreciated  - this is really outside the scope of Factory - it should be 
     *                   seperated into a rendering toolkit of some kind.
- 
+    *
     * @param   array    of HTML_Element's
     * @param    array   key(tag name) => error
     * @param    string sprintf error format..
@@ -105,8 +105,7 @@ class HTML_Template_Flexy_Factory {
     * @return   array    Array of HTML_Elements 
     * @access   public
     */
-  
-    function &setErrors(&$ret,$set,$format='<span class="error">%s</span>') 
+    public function setErrors($ret, $set, $format = '<span class="error">%s</span>')
     {
         if (empty($ret) || !is_array($ret)) {
             $ret = array();
@@ -128,8 +127,7 @@ class HTML_Template_Flexy_Factory {
         }
         return $ret;
     }
-    
-    
+
     /**
     * setRequired - sets the prefix of an element to a value..
     *  
@@ -146,11 +144,8 @@ class HTML_Template_Flexy_Factory {
     * @return   array    Array of HTML_Elements
     * @access   public
     */
-  
-    function &setRequired(&$ret,$set,$format='<span class="required">*</span>') 
+    public function setRequired($ret, $set, $format='<span class="required">*</span>')
     {
-        
-        
         if (empty($ret) || !is_array($ret)) {
             $ret = array();
         }
@@ -165,8 +160,7 @@ class HTML_Template_Flexy_Factory {
         }
         return $ret;
     }
-    
-    
+
     /**
     * freeze - freeze's an element. - just copies the value to the override.
     * this probably needs more thought.. - it would probably need to merge
@@ -183,12 +177,10 @@ class HTML_Template_Flexy_Factory {
     * @return   array    Array of HTML_Elements
     * @access   public
     */
-    function freeze(&$array) {
-    
-        foreach($array as $k=>$v) {
-            $array[$k]->override = $array[$k]->value;
+    public function freeze($array)
+    {
+        foreach ($array as $element) {
+            $element->override = $element->value;
         }
     }
-    
-
 }

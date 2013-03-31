@@ -37,7 +37,7 @@ class HTML_Template_Flexy_Compiler_Regex_Php
     * @param   object HTML_Template_Flexy   the main engine
     * @access   private
     */
-    function _set_engine(&$engine) 
+    function _set_engine($engine)
     {
     }
     /* 

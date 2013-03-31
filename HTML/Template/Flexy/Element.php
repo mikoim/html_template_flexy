@@ -597,13 +597,13 @@ class HTML_Template_Flexy_Element {
      * @return    string
      * @abstract
      */
-    function toHtml($overlay=false)
+    public function toHtml($overlay = false)
     {
          
         //echo "BEFORE<PRE>";print_R($this);
         $ret = $this;
         if ($overlay !== false) {
-            $ret = HTML_Template_Flexy::mergeElement($this,$overlay);
+            $ret = $this->merge($overlay);
         }
         
         if ($ret->override !== false) {
@@ -654,20 +654,18 @@ class HTML_Template_Flexy_Element {
      * @return    string
      * @abstract
      */
-    function toHtmlnoClose($overlay=false)
+    public function toHtmlnoClose($overlay = false)
     {
         $ret = $this;
         if ($ret->override !== false) {
             return $ret->override;
         }
         if ($overlay !== false) {
-            $ret = HTML_Template_Flexy::mergeElement($this,$overlay);
+            $ret = $this->merge($overlay);
         }
-        
-  
+
         return "<{$ret->tag}".$ret->attributesToHTML() . '>' . $ret->childrenToHTML();
-       
-         
+
     } // end func toHtml
     
     
@@ -702,7 +700,7 @@ class HTML_Template_Flexy_Element {
      * @static
      * @access   public
      */
-    function merge($new)
+    public function merge($new)
     {
         // Clone objects is possible to avoid creating references between elements
         $original = clone $this;
@@ -711,8 +709,6 @@ class HTML_Template_Flexy_Element {
             return $original;
         }
 
-        $new = clone $new;
-        
         // If the properties of $original differ from those of $new and 
         // they are set on $new, set them to $new's. Otherwise leave them 
         // as they are.
