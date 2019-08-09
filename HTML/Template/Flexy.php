@@ -219,7 +219,7 @@ class HTML_Template_Flexy
     */
     public function __construct(array $options = array())
     {
-        $baseoptions = PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+        $baseoptions = PEAR::getStaticProperty('HTML_Template_Flexy', 'options');
         if (!is_array($baseoptions)) {
             $baseoptions = array();
         }
