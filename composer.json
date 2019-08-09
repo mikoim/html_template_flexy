@@ -1,23 +1,22 @@
 {
-    "name": "rsky/pear-html_template_flexy",
+    "name": "webmaster-flw/html_template_flexy",
     "description": "Fork of https://github.com/pear/HTML_Template_Flexy",
-    "homepage": "https://github.com/rsky/pear-html_template_flexy",
-    "license": "PHP-2.02",
+    "homepage": "https://github.com/webmaster-flw/HTML_Template_Flexy",
     "autoload": {
         "classmap": ["HTML/"]
     },
     "include-path": ["/"],
-    "archive": {
-        "exclude": [
-            "/ChangeLog",
-            "/TODO",
-            "/examples",
-            "/package.xml",
-            "/tests"
-        ]
-    },
+    "license": "BSD-2-Clause",
+    "type": "library",
     "require": {
+        "pear/pear_exception": "*",
         "php": ">=5.3.0",
-        "rsky/pear-core-min": "dev-master"
+        "ext-gettext": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "suggest": {
+        "pear/html_javascript": "Install optionally via your project's composer.json"
     }
 }
