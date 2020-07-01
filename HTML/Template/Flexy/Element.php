@@ -761,7 +761,7 @@ class HTML_Template_Flexy_Element {
             }
         }
 
-        $options = PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+        $options = PEAR::getStaticProperty('HTML_Template_Flexy', 'options');
         if (is_array($options) && isset($options['charset'])) {
             return $options['charset'];
         }

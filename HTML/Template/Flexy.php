@@ -58,7 +58,7 @@ define('HTML_TEMPLATE_FLEXY_ERROR_DIE',8);  // FATAL DEATH
 *
 * Notes:
 * $options can be blank if so, it is read from 
-* PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+* PEAR::getStaticProperty('HTML_Template_Flexy', 'options');
 *
 * the first argument to outputObject is an object (which could even be an 
 * associateve array cast to an object) - I normally send it the controller class.
@@ -212,7 +212,7 @@ class HTML_Template_Flexy
     *   Constructor 
     *
     *   Initializes the Template engine, for each instance, accepts options or
-    *   reads from PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+    *   reads from PEAR::getStaticProperty('HTML_Template_Flexy', 'options');
     *
     *   @access public
     *   @param    array    $options (Optional)

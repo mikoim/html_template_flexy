@@ -1,7 +1,7 @@
 {
-    "name": "webmaster-flw/html_template_flexy",
+    "name": "pear/html_template_flexy",
     "description": "Fork of https://github.com/pear/HTML_Template_Flexy",
-    "homepage": "https://github.com/webmaster-flw/HTML_Template_Flexy",
+    "homepage": "https://github.com/mikoim/HTML_Template_Flexy",
     "autoload": {
         "classmap": ["HTML/"]
     },
@@ -9,8 +9,8 @@
     "license": "BSD-2-Clause",
     "type": "library",
     "require": {
-        "pear/pear_exception": "*",
-        "pear/pear-core-minimal": "*",        
+        "pear/pear_exception": "1.0.*",
+        "pear/pear-core-minimal": "1.10.*",        
         "php": ">=5.3.0",
         "ext-gettext": "*"
     },

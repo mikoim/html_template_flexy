@@ -109,7 +109,7 @@ class HTML_Template_Flexy_Translator {
             $this->options['targetLangs'][] = $this->options['baseLang'];
         }
 
-        $o = PEAR5::getStaticProperty('HTML_Template_Flexy', 'options');
+        $o = PEAR::getStaticProperty('HTML_Template_Flexy', 'options');
         if (!is_array($o)) {
             $o = array();
         }
